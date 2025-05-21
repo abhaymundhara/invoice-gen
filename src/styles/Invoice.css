@@ -1,0 +1,93 @@
+.invoice-page {
+  display: flex;
+  height: 100vh;
+  background-color: #111; /* match dashboard */
+}
+
+.invoice-sidebar {
+  width: 240px;
+  background-color: #0d0d0d;
+  padding: 1rem;
+}
+
+.invoice-content {
+  flex: 1;
+  padding: 2rem 4rem;
+  color: #fff;
+}
+
+.invoice-content h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.invoice-form {
+  background-color: #1c1c2c;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.invoice-form h2 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.invoice-form input {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #2a2a3d;
+  color: #fff;
+}
+
+.invoice-form input::placeholder {
+  color: #aaa;
+}
+
+.invoice-items {
+  display: flex;
+  gap: 1rem;
+}
+
+.invoice-items input {
+  flex: 1;
+}
+
+.add-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.add-btn:hover {
+  background-color: #6366f1;
+}
+
+.submit-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #6366f1;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #4f46e5;
+}

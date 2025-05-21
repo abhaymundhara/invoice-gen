@@ -1,24 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { useAuth } from "./components/AuthContext";
+
+import Navbar from "./components/NavbarGuest";
+import Sidebar from "./components/Sidebar";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Invoice from "./components/dashboard/Invoices";
 
 function App() {
+  const { isLoggedIn } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* Show Navbar only on public pages */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Navbar />
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Navbar />
+              <Signup />
+            </>
+          }
+        />
+
+        {/* Dashboard routes include Sidebar */}
+        <Route
+          path="/dashboard"
+          element={
+            isLoggedIn ? (
+              <div className="dashboard-layout">
+                <Sidebar />
+                <div className="dashboard-main">
+                  <Dashboard />
+                </div>
+              </div>
+            ) : (
+              <Login />
+            )
+          }
+        />
+
+        <Route
+          path="/invoice"
+          element={
+            isLoggedIn ? (
+              <div className="dashboard-layout">
+                <Sidebar />
+                <div className="dashboard-main">
+                  <Invoice />
+                </div>
+              </div>
+            ) : (
+              <Login />
+            )
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

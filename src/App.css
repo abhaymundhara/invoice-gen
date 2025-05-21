@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboard-container {
+  margin-left: 250px; /* same width as sidebar */
+  padding: 2rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
